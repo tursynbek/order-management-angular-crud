@@ -1,0 +1,54 @@
+ <div *ngIf="currentOrder.id" class="edit-form">
+    <h4>Order</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentOrder.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          type="text"
+          class="form-control"
+          id="quantity"
+          [(ngModel)]="currentOrder.quantity"
+          name="quantity"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          [(ngModel)]="currentOrder.price"
+          name="price"
+        />
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteOrder()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateOrder()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentOrder.id">
+    <br />
+    <p>Cannot access this Order...</p>
+  </div>
